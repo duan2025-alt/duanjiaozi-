@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>幼儿园教师资证分享页</title>
+  <style>
+    :root {
+      --bg: #f6f0e5;
+      --paper: rgba(255,255,255,.94);
+      --ink: #25323a;
+      --muted: #66757b;
+      --line: #d9cfbf;
+      --accent: #c7672b;
+      --accent-2: #296a73;
+      --soft: #f0e2c9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Noto Serif SC", "Source Han Serif SC", "STSong", "SimSun", serif;
+      background:
+        radial-gradient(circle at top left, rgba(199,103,43,.16), transparent 26%),
+        radial-gradient(circle at right 18%, rgba(41,106,115,.14), transparent 28%),
+        linear-gradient(135deg, #f9f4ea 0%, #efe5d6 48%, #f8f2e8 100%);
+      min-height: 100vh;
+    }
+    .wrap { max-width: 1380px; margin: 0 auto; padding: 28px; }
+    .hero {
+      background: var(--paper);
+      border: 1px solid rgba(199,103,43,.16);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 18px 52px rgba(60,48,34,.08);
+    }
+    .eyebrow {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: #815022;
+      font-size: 12px;
+      letter-spacing: .12em;
+    }
+    h1 { margin: 14px 0 8px; font-size: 38px; line-height: 1.15; }
+    .lead { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.8; }
+    .banner {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: linear-gradient(90deg, rgba(199,103,43,.14), rgba(41,106,115,.12));
+      border: 1px solid rgba(41,106,115,.12);
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .meta-card {
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.72);
+    }
+    .meta-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .meta-card strong {
+      display: block;
+      margin-top: 6px;
+      color: var(--accent);
+      font-size: 24px;
+      font-weight: 700;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .btn.primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn.secondary {
+      background: rgba(255,255,255,.9);
+      color: var(--ink);
+      border-color: var(--line);
+    }
+    .toolbar {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+    .toolbar input {
+      flex: 1;
+      min-width: 260px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      background: rgba(255,255,255,.95);
+      font-size: 15px;
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.88);
+      border-radius: 999px;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-size: 13px;
+      color: var(--ink);
+    }
+    .chip.active {
+      background: var(--accent-2);
+      color: #fff;
+      border-color: var(--accent-2);
+    }
+    .panel {
+      margin-top: 18px;
+      background: rgba(255,255,255,.95);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 16px 44px rgba(42,35,28,.08);
+    }
+    .table-wrap { overflow: auto; max-height: 72vh; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { padding: 10px 12px; border-bottom: 1px solid #eee4d4; vertical-align: top; }
+    th {
+      position: sticky;
+      top: 0;
+      background: #efe1cc;
+      z-index: 2;
+      text-align: left;
+      white-space: nowrap;
+    }
+    tr:hover td { background: #fbf6ef; }
+    a {
+      color: var(--accent-2);
+      text-decoration: none;
+      word-break: break-word;
+    }
+    a:hover { text-decoration: underline; }
+    .path {
+      color: #6a726f;
+      font-family: ui-monospace, Consolas, monospace;
+      white-space: nowrap;
+    }
+    .foot {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+    @media (max-width: 900px) {
+      .wrap { padding: 16px; }
+      h1 { font-size: 28px; }
+      th:nth-child(4), td:nth-child(4) { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <span class="eyebrow">KINDERGARTEN TEACHER NOTES</span>
+      <h1>幼儿园教师资证分享页</h1>
+      <p class="lead">资料源目录：E:\自制笔记 给学生。网页已支持在线浏览、分类检索和单文件下载，也可以直接下载整个 GitHub 仓库。</p>
+      <div class="banner">祝各位同学早日上岸——加油。</div>
+      <div class="meta">
+        <div class="meta-card"><span>资料文件数</span><strong>31</strong></div>
+        <div class="meta-card"><span>分类目录数</span><strong>2</strong></div>
+        <div class="meta-card"><span>文件类型数</span><strong>2</strong></div>
+        <div class="meta-card"><span>资料总大小</span><strong>173.5 MB</strong></div>
+        <div class="meta-card"><span>页面生成时间</span><strong style="font-size:18px">2026-03-12 13:28</strong></div>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/duan2025-alt/duanjiaozi-" target="_blank" rel="noreferrer">打开 GitHub 仓库</a>
+        <a class="btn secondary" href="https://github.com/duan2025-alt/duanjiaozi-/archive/refs/heads/main.zip" target="_blank" rel="noreferrer">下载整个仓库 ZIP</a>
+      </div>
+      <div class="toolbar">
+        <input id="kw" type="search" placeholder="搜索文件名、分类、扩展名或相对路径，例如：面试 / 综合素质 / pdf">
+      </div>
+      <div class="chips"><button class='chip active' data-cat='全部'>全部</button><button class='chip' data-cat='幼儿园教师资格证面试试讲真题'>幼儿园教师资格证面试试讲真题</button><button class='chip' data-cat='根目录'>根目录</button></div>
+    </section>
+
+    <section class="panel">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:68px">序号</th>
+              <th style="min-width:240px">文件名</th>
+              <th style="min-width:120px">分类</th>
+              <th style="min-width:360px">相对路径</th>
+              <th style="width:90px">类型</th>
+              <th style="width:110px">大小</th>
+            </tr>
+          </thead>
+          <tbody id="tb"><tr data-cat='根目录' data-text='2025下幼儿园保教知识与能力考试真题答案完整版.docx 2025下幼儿园保教知识与能力考试真题答案完整版.docx 根目录 docx'><td>1</td><td><a href='./files/2025%E4%B8%8B%E5%B9%BC%E5%84%BF%E5%9B%AD%E4%BF%9D%E6%95%99%E7%9F%A5%E8%AF%86%E4%B8%8E%E8%83%BD%E5%8A%9B%E8%80%83%E8%AF%95%E7%9C%9F%E9%A2%98%E7%AD%94%E6%A1%88%E5%AE%8C%E6%95%B4%E7%89%88.docx' download>2025下幼儿园保教知识与能力考试真题答案完整版.docx</a></td><td>根目录</td><td class='path'>2025下幼儿园保教知识与能力考试真题答案完整版.docx</td><td>docx</td><td>22.5 KB</td></tr><tr data-cat='根目录' data-text='《保教知识与能力》思维导图.pdf 《保教知识与能力》思维导图.pdf 根目录 pdf'><td>2</td><td><a href='./files/%E3%80%8A%E4%BF%9D%E6%95%99%E7%9F%A5%E8%AF%86%E4%B8%8E%E8%83%BD%E5%8A%9B%E3%80%8B%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.pdf' download>《保教知识与能力》思维导图.pdf</a></td><td>根目录</td><td class='path'>《保教知识与能力》思维导图.pdf</td><td>pdf</td><td>3.7 MB</td></tr><tr data-cat='根目录' data-text='《幼儿园工作规程》《幼儿园管理条例》.docx 《幼儿园工作规程》《幼儿园管理条例》.docx 根目录 docx'><td>3</td><td><a href='./files/%E3%80%8A%E5%B9%BC%E5%84%BF%E5%9B%AD%E5%B7%A5%E4%BD%9C%E8%A7%84%E7%A8%8B%E3%80%8B%E3%80%8A%E5%B9%BC%E5%84%BF%E5%9B%AD%E7%AE%A1%E7%90%86%E6%9D%A1%E4%BE%8B%E3%80%8B.docx' download>《幼儿园工作规程》《幼儿园管理条例》.docx</a></td><td>根目录</td><td class='path'>《幼儿园工作规程》《幼儿园管理条例》.docx</td><td>docx</td><td>53.8 KB</td></tr><tr data-cat='根目录' data-text='《幼儿园教育指导纲要》解读.docx 《幼儿园教育指导纲要》解读.docx 根目录 docx'><td>4</td><td><a href='./files/%E3%80%8A%E5%B9%BC%E5%84%BF%E5%9B%AD%E6%95%99%E8%82%B2%E6%8C%87%E5%AF%BC%E7%BA%B2%E8%A6%81%E3%80%8B%E8%A7%A3%E8%AF%BB.docx' download>《幼儿园教育指导纲要》解读.docx</a></td><td>根目录</td><td class='path'>《幼儿园教育指导纲要》解读.docx</td><td>docx</td><td>48.4 KB</td></tr><tr data-cat='根目录' data-text='【绝密黄金考点】幼儿园-保教知识与能力.pdf 【绝密黄金考点】幼儿园-保教知识与能力.pdf 根目录 pdf'><td>5</td><td><a href='./files/%E3%80%90%E7%BB%9D%E5%AF%86%E9%BB%84%E9%87%91%E8%80%83%E7%82%B9%E3%80%91%E5%B9%BC%E5%84%BF%E5%9B%AD-%E4%BF%9D%E6%95%99%E7%9F%A5%E8%AF%86%E4%B8%8E%E8%83%BD%E5%8A%9B.pdf' download>【绝密黄金考点】幼儿园-保教知识与能力.pdf</a></td><td>根目录</td><td class='path'>【绝密黄金考点】幼儿园-保教知识与能力.pdf</td><td>pdf</td><td>40.0 MB</td></tr><tr data-cat='根目录' data-text='【绝密黄金考点】幼儿园-综合素质.pdf 【绝密黄金考点】幼儿园-综合素质.pdf 根目录 pdf'><td>6</td><td><a href='./files/%E3%80%90%E7%BB%9D%E5%AF%86%E9%BB%84%E9%87%91%E8%80%83%E7%82%B9%E3%80%91%E5%B9%BC%E5%84%BF%E5%9B%AD-%E7%BB%BC%E5%90%88%E7%B4%A0%E8%B4%A8.pdf' download>【绝密黄金考点】幼儿园-综合素质.pdf</a></td><td>根目录</td><td class='path'>【绝密黄金考点】幼儿园-综合素质.pdf</td><td>pdf</td><td>20.8 MB</td></tr><tr data-cat='根目录' data-text='【背诵版】102个教育学心理学人物考点关键词全归纳(1).pdf 【背诵版】102个教育学心理学人物考点关键词全归纳(1).pdf 根目录 pdf'><td>7</td><td><a href='./files/%E3%80%90%E8%83%8C%E8%AF%B5%E7%89%88%E3%80%91102%E4%B8%AA%E6%95%99%E8%82%B2%E5%AD%A6%E5%BF%83%E7%90%86%E5%AD%A6%E4%BA%BA%E7%89%A9%E8%80%83%E7%82%B9%E5%85%B3%E9%94%AE%E8%AF%8D%E5%85%A8%E5%BD%92%E7%BA%B3%281%29.pdf' download>【背诵版】102个教育学心理学人物考点关键词全归纳(1).pdf</a></td><td>根目录</td><td class='path'>【背诵版】102个教育学心理学人物考点关键词全归纳(1).pdf</td><td>pdf</td><td>655.9 KB</td></tr><tr data-cat='根目录' data-text='作文模板和开头结尾和题目.pdf 作文模板和开头结尾和题目.pdf 根目录 pdf'><td>8</td><td><a href='./files/%E4%BD%9C%E6%96%87%E6%A8%A1%E6%9D%BF%E5%92%8C%E5%BC%80%E5%A4%B4%E7%BB%93%E5%B0%BE%E5%92%8C%E9%A2%98%E7%9B%AE.pdf' download>作文模板和开头结尾和题目.pdf</a></td><td>根目录</td><td class='path'>作文模板和开头结尾和题目.pdf</td><td>pdf</td><td>6.9 MB</td></tr><tr data-cat='根目录' data-text='作文道理论据和事例论据素材.pdf 作文道理论据和事例论据素材.pdf 根目录 pdf'><td>9</td><td><a href='./files/%E4%BD%9C%E6%96%87%E9%81%93%E7%90%86%E8%AE%BA%E6%8D%AE%E5%92%8C%E4%BA%8B%E4%BE%8B%E8%AE%BA%E6%8D%AE%E7%B4%A0%E6%9D%90.pdf' download>作文道理论据和事例论据素材.pdf</a></td><td>根目录</td><td class='path'>作文道理论据和事例论据素材.pdf</td><td>pdf</td><td>26.5 MB</td></tr><tr data-cat='根目录' data-text='作文金句+人物+范文汇总.docx 作文金句+人物+范文汇总.docx 根目录 docx'><td>10</td><td><a href='./files/%E4%BD%9C%E6%96%87%E9%87%91%E5%8F%A5%2B%E4%BA%BA%E7%89%A9%2B%E8%8C%83%E6%96%87%E6%B1%87%E6%80%BB.docx' download>作文金句+人物+范文汇总.docx</a></td><td>根目录</td><td class='path'>作文金句+人物+范文汇总.docx</td><td>docx</td><td>557.1 KB</td></tr><tr data-cat='根目录' data-text='学前心理学教资真题汇总.docx 学前心理学教资真题汇总.docx 根目录 docx'><td>11</td><td><a href='./files/%E5%AD%A6%E5%89%8D%E5%BF%83%E7%90%86%E5%AD%A6%E6%95%99%E8%B5%84%E7%9C%9F%E9%A2%98%E6%B1%87%E6%80%BB.docx' download>学前心理学教资真题汇总.docx</a></td><td>根目录</td><td class='path'>学前心理学教资真题汇总.docx</td><td>docx</td><td>4.6 MB</td></tr><tr data-cat='根目录' data-text='学前教育学教资真题汇总.docx 学前教育学教资真题汇总.docx 根目录 docx'><td>12</td><td><a href='./files/%E5%AD%A6%E5%89%8D%E6%95%99%E8%82%B2%E5%AD%A6%E6%95%99%E8%B5%84%E7%9C%9F%E9%A2%98%E6%B1%87%E6%80%BB.docx' download>学前教育学教资真题汇总.docx</a></td><td>根目录</td><td class='path'>学前教育学教资真题汇总.docx</td><td>docx</td><td>4.0 MB</td></tr><tr data-cat='根目录' data-text='幼儿《保教知识与能力》考前考前狂背10页纸.pdf 幼儿《保教知识与能力》考前考前狂背10页纸.pdf 根目录 pdf'><td>13</td><td><a href='./files/%E5%B9%BC%E5%84%BF%E3%80%8A%E4%BF%9D%E6%95%99%E7%9F%A5%E8%AF%86%E4%B8%8E%E8%83%BD%E5%8A%9B%E3%80%8B%E8%80%83%E5%89%8D%E8%80%83%E5%89%8D%E7%8B%82%E8%83%8C10%E9%A1%B5%E7%BA%B8.pdf' download>幼儿《保教知识与能力》考前考前狂背10页纸.pdf</a></td><td>根目录</td><td class='path'>幼儿《保教知识与能力》考前考前狂背10页纸.pdf</td><td>pdf</td><td>10.9 MB</td></tr><tr data-cat='根目录' data-text='幼儿《综合素质》考前狂背10页纸.pdf 幼儿《综合素质》考前狂背10页纸.pdf 根目录 pdf'><td>14</td><td><a href='./files/%E5%B9%BC%E5%84%BF%E3%80%8A%E7%BB%BC%E5%90%88%E7%B4%A0%E8%B4%A8%E3%80%8B%E8%80%83%E5%89%8D%E7%8B%82%E8%83%8C10%E9%A1%B5%E7%BA%B8.pdf' download>幼儿《综合素质》考前狂背10页纸.pdf</a></td><td>根目录</td><td class='path'>幼儿《综合素质》考前狂背10页纸.pdf</td><td>pdf</td><td>10.4 MB</td></tr><tr data-cat='幼儿园教师资格证面试试讲真题' data-text='2024年下 教师资格证面试.pdf 幼儿园教师资格证面试试讲真题/2024年下 教师资格证面试.pdf 幼儿园教师资格证面试试讲真题 pdf'><td>15</td><td><a href='./files/%E5%B9%BC%E5%84%BF%E5%9B%AD%E6%95%99%E5%B8%88%E8%B5%84%E6%A0%BC%E8%AF%81%E9%9D%A2%E8%AF%95%E8%AF%95%E8%AE%B2%E7%9C%9F%E9%A2%98/2024%E5%B9%B4%E4%B8%8B%20%E6%95%99%E5%B8%88%E8%B5%84%E6%A0%BC%E8%AF%81%E9%9D%A2%E8%AF%95.pdf' download>2024年下 教师资格证面试.pdf</a></td><td>幼儿园教师资格证面试试讲真题</td><td class='path'>幼儿园教师资格证面试试讲真题/2024年下 教师资格证面试.pdf</td><td>pdf</td><td>280.2 KB</td></tr><tr data-cat='幼儿园教师资格证面试试讲真题' data-text='弹唱.docx 幼儿园教师资格证面试试讲真题/弹唱.docx 幼儿园教师资格证面试试讲真题 docx'><td>16</td><td><a href='./files/%E5%B9%BC%E5%84%BF%E5%9B%AD%E6%95%99%E5%B8%88%E8%B5%84%E6%A0%BC%E8%AF%81%E9%9D%A2%E8%AF%95%E8%AF%95%E8%AE%B2%E7%9C%9F%E9%A2%98/%E5%BC%B9%E5%94%B1.docx' download>弹唱.docx</a></td><td>幼儿园教师资格证面试试讲真题</td><td class='path'>幼儿园教师资格证面试试讲真题/弹唱.docx</td><td>docx</td><td>1.8 MB</td></tr><tr data-cat='幼儿园教师资格证面试试讲真题' data-text='游戏类.docx 幼儿园教师资格证面试试讲真题/游戏类.docx 幼儿园教师资格证面试试讲真题 docx'><td>17</td><td><a href='./files/%E5%B9%BC%E5%84%BF%E5%9B%AD%E6%95%99%E5%B8%88%E8%B5%84%E6%A0%BC%E8%AF%81%E9%9D%A2%E8%AF%95%E8%AF%95%E8%AE%B2%E7%9C%9F%E9%A2%98/%E6%B8%B8%E6%88%8F%E7%B1%BB.docx' download>游戏类.docx</a></td><td>幼儿园教师资格证面试试讲真题</td><td class='path'>幼儿园教师资格证面试试讲真题/游戏类.docx</td><td>docx</td><td>1.2 MB</td></tr><tr data-cat='幼儿园教师资格证面试试讲真题' data-text='综合类.docx 幼儿园教师资格证面试试讲真题/综合类.docx 幼儿园教师资格证面试试讲真题 docx'><td>18</td><td><a href='./files/%E5%B9%BC%E5%84%BF%E5%9B%AD%E6%95%99%E5%B8%88%E8%B5%84%E6%A0%BC%E8%AF%81%E9%9D%A2%E8%AF%95%E8%AF%95%E8%AE%B2%E7%9C%9F%E9%A2%98/%E7%BB%BC%E5%90%88%E7%B1%BB.docx' download>综合类.docx</a></td><td>幼儿园教师资格证面试试讲真题</td><td class='path'>幼儿园教师资格证面试试讲真题/综合类.docx</td><td>docx</td><td>1.8 MB</td></tr><tr data-cat='幼儿园教师资格证面试试讲真题' data-text='美术与手工.docx 幼儿园教师资格证面试试讲真题/美术与手工.docx 幼儿园教师资格证面试试讲真题 docx'><td>19</td><td><a href='./files/%E5%B9%BC%E5%84%BF%E5%9B%AD%E6%95%99%E5%B8%88%E8%B5%84%E6%A0%BC%E8%AF%81%E9%9D%A2%E8%AF%95%E8%AF%95%E8%AE%B2%E7%9C%9F%E9%A2%98/%E7%BE%8E%E6%9C%AF%E4%B8%8E%E6%89%8B%E5%B7%A5.docx' download>美术与手工.docx</a></td><td>幼儿园教师资格证面试试讲真题</td><td class='path'>幼儿园教师资格证面试试讲真题/美术与手工.docx</td><td>docx</td><td>4.7 MB</td></tr><tr data-cat='幼儿园教师资格证面试试讲真题' data-text='舞蹈.docx 幼儿园教师资格证面试试讲真题/舞蹈.docx 幼儿园教师资格证面试试讲真题 docx'><td>20</td><td><a href='./files/%E5%B9%BC%E5%84%BF%E5%9B%AD%E6%95%99%E5%B8%88%E8%B5%84%E6%A0%BC%E8%AF%81%E9%9D%A2%E8%AF%95%E8%AF%95%E8%AE%B2%E7%9C%9F%E9%A2%98/%E8%88%9E%E8%B9%88.docx' download>舞蹈.docx</a></td><td>幼儿园教师资格证面试试讲真题</td><td class='path'>幼儿园教师资格证面试试讲真题/舞蹈.docx</td><td>docx</td><td>19.1 KB</td></tr><tr data-cat='幼儿园教师资格证面试试讲真题' data-text='讲故事与诗歌.docx 幼儿园教师资格证面试试讲真题/讲故事与诗歌.docx 幼儿园教师资格证面试试讲真题 docx'><td>21</td><td><a href='./files/%E5%B9%BC%E5%84%BF%E5%9B%AD%E6%95%99%E5%B8%88%E8%B5%84%E6%A0%BC%E8%AF%81%E9%9D%A2%E8%AF%95%E8%AF%95%E8%AE%B2%E7%9C%9F%E9%A2%98/%E8%AE%B2%E6%95%85%E4%BA%8B%E4%B8%8E%E8%AF%97%E6%AD%8C.docx' download>讲故事与诗歌.docx</a></td><td>幼儿园教师资格证面试试讲真题</td><td class='path'>幼儿园教师资格证面试试讲真题/讲故事与诗歌.docx</td><td>docx</td><td>3.7 MB</td></tr><tr data-cat='根目录' data-text='幼儿教资综合素质思维导图.pdf 幼儿教资综合素质思维导图.pdf 根目录 pdf'><td>22</td><td><a href='./files/%E5%B9%BC%E5%84%BF%E6%95%99%E8%B5%84%E7%BB%BC%E5%90%88%E7%B4%A0%E8%B4%A8%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.pdf' download>幼儿教资综合素质思维导图.pdf</a></td><td>根目录</td><td class='path'>幼儿教资综合素质思维导图.pdf</td><td>pdf</td><td>3.3 MB</td></tr><tr data-cat='根目录' data-text='幼儿生长发育特点与卫生保健.docx 幼儿生长发育特点与卫生保健.docx 根目录 docx'><td>23</td><td><a href='./files/%E5%B9%BC%E5%84%BF%E7%94%9F%E9%95%BF%E5%8F%91%E8%82%B2%E7%89%B9%E7%82%B9%E4%B8%8E%E5%8D%AB%E7%94%9F%E4%BF%9D%E5%81%A5.docx' download>幼儿生长发育特点与卫生保健.docx</a></td><td>根目录</td><td class='path'>幼儿生长发育特点与卫生保健.docx</td><td>docx</td><td>50.0 KB</td></tr><tr data-cat='根目录' data-text='我国幼儿园教育、儿童观、教育原则.pdf 我国幼儿园教育、儿童观、教育原则.pdf 根目录 pdf'><td>24</td><td><a href='./files/%E6%88%91%E5%9B%BD%E5%B9%BC%E5%84%BF%E5%9B%AD%E6%95%99%E8%82%B2%E3%80%81%E5%84%BF%E7%AB%A5%E8%A7%82%E3%80%81%E6%95%99%E8%82%B2%E5%8E%9F%E5%88%99.pdf' download>我国幼儿园教育、儿童观、教育原则.pdf</a></td><td>根目录</td><td class='path'>我国幼儿园教育、儿童观、教育原则.pdf</td><td>pdf</td><td>293.7 KB</td></tr><tr data-cat='根目录' data-text='教师资格证常考人物.pdf 教师资格证常考人物.pdf 根目录 pdf'><td>25</td><td><a href='./files/%E6%95%99%E5%B8%88%E8%B5%84%E6%A0%BC%E8%AF%81%E5%B8%B8%E8%80%83%E4%BA%BA%E7%89%A9.pdf' download>教师资格证常考人物.pdf</a></td><td>根目录</td><td class='path'>教师资格证常考人物.pdf</td><td>pdf</td><td>175.4 KB</td></tr><tr data-cat='根目录' data-text='教育理论名人著作及重要思想.pdf 教育理论名人著作及重要思想.pdf 根目录 pdf'><td>26</td><td><a href='./files/%E6%95%99%E8%82%B2%E7%90%86%E8%AE%BA%E5%90%8D%E4%BA%BA%E8%91%97%E4%BD%9C%E5%8F%8A%E9%87%8D%E8%A6%81%E6%80%9D%E6%83%B3.pdf' download>教育理论名人著作及重要思想.pdf</a></td><td>根目录</td><td class='path'>教育理论名人著作及重要思想.pdf</td><td>pdf</td><td>1.1 MB</td></tr><tr data-cat='根目录' data-text='教资报名问题.docx 教资报名问题.docx 根目录 docx'><td>27</td><td><a href='./files/%E6%95%99%E8%B5%84%E6%8A%A5%E5%90%8D%E9%97%AE%E9%A2%98.docx' download>教资报名问题.docx</a></td><td>根目录</td><td class='path'>教资报名问题.docx</td><td>docx</td><td>10.3 KB</td></tr><tr data-cat='根目录' data-text='教资科一蒙题技巧.pdf 教资科一蒙题技巧.pdf 根目录 pdf'><td>28</td><td><a href='./files/%E6%95%99%E8%B5%84%E7%A7%91%E4%B8%80%E8%92%99%E9%A2%98%E6%8A%80%E5%B7%A7.pdf' download>教资科一蒙题技巧.pdf</a></td><td>根目录</td><td class='path'>教资科一蒙题技巧.pdf</td><td>pdf</td><td>17.1 MB</td></tr><tr data-cat='根目录' data-text='科二选择题9.12.docx 科二选择题9.12.docx 根目录 docx'><td>29</td><td><a href='./files/%E7%A7%91%E4%BA%8C%E9%80%89%E6%8B%A9%E9%A2%989.12.docx' download>科二选择题9.12.docx</a></td><td>根目录</td><td class='path'>科二选择题9.12.docx</td><td>docx</td><td>52.5 KB</td></tr><tr data-cat='根目录' data-text='考前页纸保教知识与能力（幼儿园）.pdf 考前页纸保教知识与能力（幼儿园）.pdf 根目录 pdf'><td>30</td><td><a href='./files/%E8%80%83%E5%89%8D%E9%A1%B5%E7%BA%B8%E4%BF%9D%E6%95%99%E7%9F%A5%E8%AF%86%E4%B8%8E%E8%83%BD%E5%8A%9B%EF%BC%88%E5%B9%BC%E5%84%BF%E5%9B%AD%EF%BC%89.pdf' download>考前页纸保教知识与能力（幼儿园）.pdf</a></td><td>根目录</td><td class='path'>考前页纸保教知识与能力（幼儿园）.pdf</td><td>pdf</td><td>4.0 MB</td></tr><tr data-cat='根目录' data-text='考前页纸幼儿园综合素质.pdf 考前页纸幼儿园综合素质.pdf 根目录 pdf'><td>31</td><td><a href='./files/%E8%80%83%E5%89%8D%E9%A1%B5%E7%BA%B8%E5%B9%BC%E5%84%BF%E5%9B%AD%E7%BB%BC%E5%90%88%E7%B4%A0%E8%B4%A8.pdf' download>考前页纸幼儿园综合素质.pdf</a></td><td>根目录</td><td class='path'>考前页纸幼儿园综合素质.pdf</td><td>pdf</td><td>4.8 MB</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="foot">
+      分享说明：网页文件托管在 GitHub Pages，单个资料文件托管在当前仓库内。若你只想发一个链接给同学，直接发本页地址即可。
+    </div>
+  </div>
+
+  <script>
+    const rows = [...document.querySelectorAll('#tb tr')];
+    const search = document.getElementById('kw');
+    const chips = [...document.querySelectorAll('.chip')];
+    let currentCat = '全部';
+
+    function applyFilter() {
+      const kw = search.value.trim().toLowerCase();
+      rows.forEach((row) => {
+        const text = row.dataset.text || '';
+        const cat = row.dataset.cat || '';
+        const matchCat = currentCat === '全部' || currentCat === cat;
+        const matchKw = !kw || text.includes(kw);
+        row.style.display = matchCat && matchKw ? '' : 'none';
+      });
+    }
+
+    search.addEventListener('input', applyFilter);
+    chips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        chips.forEach((item) => item.classList.remove('active'));
+        chip.classList.add('active');
+        currentCat = chip.dataset.cat;
+        applyFilter();
+      });
+    });
+  </script>
+</body>
+</html>
